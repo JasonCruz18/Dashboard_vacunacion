@@ -1,16 +1,23 @@
+#+++++++++++++++++++++++++++++
+# Librerías
+#+++++++++++++++++++++++++++++
+
 library(data.table)
 library(plyr)
 library(dplyr)
 library(highcharter)
 library(readxl)
+library(dplyr)
+library(ggplot2)
+library(ggiraph)
 
 #--------------------------
 # 1. P R O V I N C I A S
 #--------------------------
 
-##########
-#  Data  #
-##########
+#+++++++++++++++++++++++++++++
+# Data
+#+++++++++++++++++++++++++++++
 
 # fans_react = fread("https://raw.githubusercontent.com/manasi1096/Highcharts-HIMYM/master/FansReact-HIMYM.csv")
 base1 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/base_provincias_18.xlsx")
@@ -23,9 +30,9 @@ mypal <- c(
 )
 print(mypal)
 
-##############
-#   Gráfico  #
-##############
+#+++++++++++++++++++++++++++++
+# Gráfico 1
+#+++++++++++++++++++++++++++++
 
 require(highcharter)
 
@@ -57,6 +64,39 @@ highchart() %>%
 # 2. H O S P I T A L E S
 #--------------------------
 
+#+++++++++++++++++++++++++++++
+# Gráfico 2
+#+++++++++++++++++++++++++++++
+
+donut_data <- data.frame(type = c("Vacunados", "Por_vacunar"), value = c(3716, 313)) %>%
+  mutate(
+    percentage = value / 4029,
+    hover_text = paste0(type, ": ", value)
+  ) %>%
+  mutate(percentage_label = paste0(round(100 * percentage, 1), "%"))
+
+donut_plot <- ggplot(donut_data, aes(y = value, fill = type)) +
+  geom_bar_interactive(
+    aes(x = 1, tooltip = hover_text),
+    width = 0.2,
+    stat = "identity",
+    show.legend = T
+  ) +
+  labs(fill = "GOBIERNO REGIONAL",
+       x = " ") +
+  annotate(
+    geom = "text",
+    x = 0,
+    y = 0,
+    label = donut_data[["percentage_label"]][donut_data[["type"]] == "Vacunados"],
+    size = 18,
+    color = "#d00000"
+  ) +
+  scale_fill_manual(values = c(Vacunados = "#d00000", Por_vacunar = "#03071e")) +
+  coord_polar(theta = "y") +
+  theme_minimal()
+
+ggiraph(ggobj = donut_plot)
 
 
 
