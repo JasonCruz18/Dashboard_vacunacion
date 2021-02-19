@@ -13,7 +13,7 @@ library(readxl)
 ##########
 
 # fans_react = fread("https://raw.githubusercontent.com/manasi1096/Highcharts-HIMYM/master/FansReact-HIMYM.csv")
-base1 <- read_excel("D:/DIRESA Cusco/MatLab DIRESA/Vacunación/base provincias 18.02.2021.xlsx")
+base1 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/base provincias 18.xlsx")
 
 # Paleta de colores
 
