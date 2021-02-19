@@ -4,6 +4,10 @@ library(dplyr)
 library(highcharter)
 library(readxl)
 
+#--------------------------
+# 1. P R O V I N C I A S
+#--------------------------
+
 ##########
 #  Data  #
 ##########
@@ -49,7 +53,9 @@ highchart() %>%
    hc_tooltip(pointFormat = "{point.y}%")  
 
 
-
+#--------------------------
+# 2. H O S P I T A L E S
+#--------------------------
 
 
 
