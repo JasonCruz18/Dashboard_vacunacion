@@ -4,12 +4,16 @@ library(dplyr)
 library(highcharter)
 library(readxl)
 
+#--------------------------
+# 1. P R O V I N C I A S
+#--------------------------
+
 ##########
 #  Data  #
 ##########
 
 # fans_react = fread("https://raw.githubusercontent.com/manasi1096/Highcharts-HIMYM/master/FansReact-HIMYM.csv")
-base1 <- read_excel("D:/DIRESA Cusco/MatLab DIRESA/Vacunación/base provincias 18.02.2021.xlsx")
+base1 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/base_provincias_18.xlsx")
 
 # Paleta de colores
 
@@ -49,7 +53,9 @@ highchart() %>%
    hc_tooltip(pointFormat = "{point.y}%")  
 
 
-
+#--------------------------
+# 2. H O S P I T A L E S
+#--------------------------
 
 
 
