@@ -68,6 +68,9 @@ highchart() %>%
 # Gráfico 2
 #+++++++++++++++++++++++++++++
 
+# Gráfico 2.1.
+#---------------
+
 donut_data <- data.frame(type = c("Vacunados", "Por_vacunar"), value = c(3716, 313)) %>%
   mutate(
     percentage = value / 4029,
@@ -99,10 +102,43 @@ donut_plot <- ggplot(donut_data, aes(y = value, fill = type)) +
 ggiraph(ggobj = donut_plot)
 
 
+highchart(width = 400, height = 400) %>% 
+  hc_chart(type = "solidgauge",backgroundColor = "#F0F0F0",marginTop = 50) %>% 
+  hc_title(text = "Activity",style = list(fontSize = "24px")) %>% 
+  hc_tooltip(borderWidth = 0,backgroundColor = 'none',shadow = FALSE,style = list(fontSize = '16px'),
+             pointFormat = '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+             positioner = JS("function (labelWidth, labelHeight) {return {x: 200 - labelWidth / 2,y: 180};}")) %>% 
+  hc_pane(startAngle = 0,endAngle = 360,
+          background = list(
+            list(outerRadius = '112%',innerRadius = '88%',backgroundColor = JS("Highcharts.Color('#F62366').setOpacity(0.1).get()"),borderWidth =  0),
+            list(outerRadius = '87%',innerRadius = '63%',backgroundColor = JS("Highcharts.Color('#9DFF02').setOpacity(0.1).get()"),borderWidth = 0),
+            list(outerRadius = '62%',innerRadius =  '38%',backgroundColor = JS("Highcharts.Color('#0CCDD6').setOpacity(0.1).get()"),borderWidth = 0))) %>% 
+  hc_yAxis(min = 0,max = 100,lineWidth = 0,tickPositions = list()) %>% 
+  hc_plotOptions(solidgauge = list(borderWidth = '34px',dataLabels = list(enabled = FALSE),linecap = 'round',stickyTracking = FALSE)) %>% 
+  hc_add_series(name = "Move",borderColor = JS("Highcharts.getOptions().colors[0]"),data = list(list(color = JS("Highcharts.getOptions().colors[0]"),radius = "100%",innerRadius = "100%",y = 80))) %>% 
+  hc_add_series(name = "Exercise",borderColor = JS("Highcharts.getOptions().colors[1]"),data = list(list(color = JS("Highcharts.getOptions().colors[1]"),radius = "75%",innerRadius = "75%",y = 65))) %>% 
+  hc_add_series(name = "Stand",borderColor = JS("Highcharts.getOptions().colors[2]"),data = list(list(color = JS("Highcharts.getOptions().colors[2]"),radius = "50%",innerRadius = "50%",y = 50)))
 
 
+# Gráfico 2.2. 
+#--------------
 
-
+highchart(width = 400, height = 400) %>% 
+  hc_chart(type = "solidgauge",backgroundColor = "#F0F0F0",marginTop = 50) %>% 
+  hc_title(text = "Activity",style = list(fontSize = "24px")) %>% 
+  hc_tooltip(borderWidth = 0,backgroundColor = 'none',shadow = FALSE,style = list(fontSize = '16px'),
+             pointFormat = '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+             positioner = JS("function (labelWidth, labelHeight) {return {x: 200 - labelWidth / 2,y: 180};}")) %>% 
+  hc_pane(startAngle = 0,endAngle = 360,
+          background = list(
+            list(outerRadius = '112%',innerRadius = '88%',backgroundColor = JS("Highcharts.Color('#F62366').setOpacity(0.1).get()"),borderWidth =  0),
+            list(outerRadius = '87%',innerRadius = '63%',backgroundColor = JS("Highcharts.Color('#9DFF02').setOpacity(0.1).get()"),borderWidth = 0),
+            list(outerRadius = '62%',innerRadius =  '38%',backgroundColor = JS("Highcharts.Color('#0CCDD6').setOpacity(0.1).get()"),borderWidth = 0))) %>% 
+  hc_yAxis(min = 0,max = 100,lineWidth = 0,tickPositions = list()) %>% 
+  hc_plotOptions(solidgauge = list(borderWidth = '34px',dataLabels = list(enabled = FALSE),linecap = 'round',stickyTracking = FALSE)) %>% 
+  hc_add_series(name = "Move",borderColor = JS("Highcharts.getOptions().colors[0]"),data = list(list(color = JS("Highcharts.getOptions().colors[0]"),radius = "100%",innerRadius = "100%",y = 80))) %>% 
+  hc_add_series(name = "Exercise",borderColor = JS("Highcharts.getOptions().colors[1]"),data = list(list(color = JS("Highcharts.getOptions().colors[1]"),radius = "75%",innerRadius = "75%",y = 65))) %>% 
+  hc_add_series(name = "Stand",borderColor = JS("Highcharts.getOptions().colors[2]"),data = list(list(color = JS("Highcharts.getOptions().colors[2]"),radius = "50%",innerRadius = "50%",y = 50)))
 
 
 
