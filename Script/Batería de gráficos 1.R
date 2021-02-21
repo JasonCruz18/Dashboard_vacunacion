@@ -127,7 +127,7 @@ highchart() %>%
       pointPlacement = "on",
       type = "area"),
     list(
-      name = "Avance",
+      name = "Meta",
       data = round(base1$MAXIMO),
       pointPlacement = "on",
       type = "line")) %>% 
@@ -156,7 +156,7 @@ dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>",
 
 highchart() %>%
   hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  # hc_title(y=50,text = "Planificación de Actividades") %>%
+  hc_title(y=50,text = "HOSPITAL REGIONAL DEL CUSCO") %>%
   hc_pane(startAngle = -90,
           endAngle = 90,background= list(
             outerRadius = '100%',
@@ -170,7 +170,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=20,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 # H. ANTONIO LORENA DEL CUSCO
@@ -187,7 +187,7 @@ dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>",
 
 highchart() %>%
   hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  # hc_title(y=50,text = "Planificación de Actividades") %>%
+  hc_title(y=50,text = "HOSPITAL ANTONIO LORENA DEL CUSCO") %>%
   hc_pane(startAngle = -90,
           endAngle = 90,background= list(
             outerRadius = '100%',
@@ -201,7 +201,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=10,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 # H. ESPINAR
@@ -218,7 +218,7 @@ dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>",
 
 highchart() %>%
   hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  # hc_title(y=50,text = "Planificación de Actividades") %>%
+  hc_title(y=50,text = "HOSPITAL ESPINAR") %>%
   hc_pane(startAngle = -90,
           endAngle = 90,background= list(
             outerRadius = '100%',
@@ -232,7 +232,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=10,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 # H. QUILLABAMBA
@@ -249,7 +249,7 @@ dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>",
 
 highchart() %>%
   hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  # hc_title(y=50,text = "Planificación de Actividades") %>%
+  hc_title(y=50,text = "HOSPITAL QUILLABAMBA") %>%
   hc_pane(startAngle = -90,
           endAngle = 90,background= list(
             outerRadius = '100%',
@@ -263,7 +263,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=10,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 # H. SICUANI
@@ -280,7 +280,7 @@ dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>",
 
 highchart() %>%
   hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  # hc_title(y=50,text = "Planificación de Actividades") %>%
+  hc_title(y=50,text = "HOSPITAL SICUANI") %>%
   hc_pane(startAngle = -90,
           endAngle = 90,background= list(
             outerRadius = '100%',
@@ -294,7 +294,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=10,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 
@@ -309,13 +309,13 @@ highchart() %>%
 
 # Data 1
 
-data2 <- read_excel("D:/DIRESA Cusco/MatLab DIRESA/Vacunación/Canas Canchis Espinar.xlsx")
+data2 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/RED Canas Canchis Espinar.xlsx")
 
 require(highcharter)
 
 highchart() %>% 
   hc_chart(polar = TRUE) %>% 
-  hc_title(text = "REDES",
+  hc_title(text = "RED CANAS-CANCHIS-ESPINAR",
            style = list(fontWeight = "bold", fontSize = "25px", color="#03071e", useHTML=TRUE),
            align = "center") %>% 
   hc_subtitle(text = "'Avance de vacunación'",
@@ -347,14 +347,14 @@ highchart() %>%
 #  RED CUSCO NORTE
 #__________________________________________________________
 
-data3 <- read_excel("D:/DIRESA Cusco/MatLab DIRESA/Vacunación/Cusco Norte.xlsx")
+data3 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/RED Cusco Norte.xlsx")
 
 
 require(highcharter)
 
 highchart() %>% 
   hc_chart(polar = TRUE) %>% 
-  hc_title(text = "REDES",
+  hc_title(text = "RED CUSCO NORTE",
            style = list(fontWeight = "bold", fontSize = "25px", color="#03071e", useHTML=TRUE),
            align = "center") %>% 
   hc_subtitle(text = "'Avance de vacunación'",
@@ -385,14 +385,14 @@ highchart() %>%
 #  RED CUSCO SUR
 #__________________________________________________________
 
-data4 <- read_excel("D:/DIRESA Cusco/MatLab DIRESA/Vacunación/Cusco Sur.xlsx")
+data4 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/RED Cusco Sur.xlsx")
 
 
 require(highcharter)
 
 highchart() %>% 
   hc_chart(polar = TRUE) %>% 
-  hc_title(text = "REDES",
+  hc_title(text = "RED CUSCO SUR",
            style = list(fontWeight = "bold", fontSize = "25px", color="#03071e", useHTML=TRUE),
            align = "center") %>% 
   hc_subtitle(text = "'Avance de vacunación'",
@@ -423,7 +423,7 @@ highchart() %>%
 #  RED LA CONVENCION
 #__________________________________________________________
 
-data5 <- read_excel("D:/DIRESA Cusco/MatLab DIRESA/Vacunación/La Convención.xlsx")
+data5 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/RED La Convención.xlsx")
 
 require(highcharter)
 
