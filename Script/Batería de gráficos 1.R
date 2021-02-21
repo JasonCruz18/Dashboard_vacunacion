@@ -1,8 +1,3 @@
-#---------------------------------------
-# GRÁFICOS PARA DASHBOARD VACUNACIÓN   #
-#---------------------------------------
-
-
 #+++++++++++++++++++++++++++++
 # Librerías
 #+++++++++++++++++++++++++++++
@@ -17,76 +12,6 @@ library(ggiraph)
 library(readxl)
 library(fmsb)
 
-# Paleta de colores
-
-mypal <- c(
-  rgb(255, 99, 7, maxColorValue = 255),
-  rgb(233, 41, 15, maxColorValue = 255)
-)
-print(mypal)
-
-#--------------------------
-# 0. E N T I D A D 
-#--------------------------
-
-
-# GORE
-#------------------
-
-per=62
-col=ifelse(per <= 100,"#011f3f",ifelse(per <=80,"#011f3f","#011f3f")) 
-
-dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
-                    "%</span><br/><span style='font-size:100%;color:#011f3f;'>de avance</div>")
-
-highchart() %>%
-  hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  hc_title(y=50,text = "GOBIERNO REGIONAL") %>%
-  hc_pane(startAngle = -90,
-          endAngle = 90,background= list(
-            outerRadius = '100%',
-            innerRadius = '60%',
-            backgroundColor = JS("Highcharts.Color('#fef2bf').setOpacity(0.1).get()"),
-            shape="arc" )) %>%  
-  hc_yAxis(
-    # stops=col.stops,
-    lineWidth=0,
-    minorTickWidth=0,
-    tickAmount=2,
-    min = 0,
-    max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
-  hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
-
-
-# ESSALUD
-#------------------
-
-per=98
-col=ifelse(per <= 100,"#163a5f",ifelse(per <=80,"#163a5f","#163a5f")) 
-
-dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
-                    "%</span><br/><span style='font-size:100%;color:#163a5f;'>de avance</div>")
-
-highchart() %>%
-  hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  hc_title(y=50,text = "ESSALUD") %>%
-  hc_pane(startAngle = -90,
-          endAngle = 90,background= list(
-            outerRadius = '100%',
-            innerRadius = '60%',
-            backgroundColor = JS("Highcharts.Color('#fef2bf').setOpacity(0.1).get()"),
-            shape="arc" )) %>%  
-  hc_yAxis(
-    # stops=col.stops,
-    lineWidth=0,
-    minorTickWidth=0,
-    tickAmount=2,
-    min = 0,
-    max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
-  hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
-
 
 #--------------------------
 # 1. P R O V I N C I A S
@@ -96,8 +21,20 @@ highchart() %>%
 # Data
 #+++++++++++++++++++++++++++++
 
+# fans_react = fread("https://raw.githubusercontent.com/manasi1096/Highcharts-HIMYM/master/FansReact-HIMYM.csv")
+
+base1 <- read_excel("/Users/bran/Documents/GitHub/Dashboard_vacunacion/data/base_provincias_18.xlsx")
+
 base1 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/base_provincias_20.xlsx")
 
+
+# Paleta de colores
+
+mypal <- c(
+  rgb(255, 99, 7, maxColorValue = 255),
+  rgb(233, 41, 15, maxColorValue = 255)
+)
+print(mypal)
 
 #+++++++++++++++++++++++++++++
 # Gráfico 1
@@ -131,12 +68,32 @@ highchart() %>%
       data = round(base1$MAXIMO),
       pointPlacement = "on",
       type = "line")) %>% 
-  hc_tooltip(pointFormat = "{point.y}%")  
+   hc_tooltip(pointFormat = "{point.y}%")  
 
 
 #--------------------------
 # 2. H O S P I T A L E S
 #--------------------------
+
+# Gráfico 2.2. 
+#--------------
+
+# highchart(width = 400, height = 400) %>% 
+#   hc_chart(type = "solidgauge",backgroundColor = "#F0F0F0",marginTop = 50) %>% 
+#   hc_title(text = "Activity",style = list(fontSize = "24px")) %>% 
+#   hc_tooltip(borderWidth = 0,backgroundColor = 'none',shadow = FALSE,style = list(fontSize = '16px'),
+#              pointFormat = '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+#              positioner = JS("function (labelWidth, labelHeight) {return {x: 200 - labelWidth / 2,y: 180};}")) %>% 
+#   hc_pane(startAngle = 0,endAngle = 360,
+#           background = list(
+#             list(outerRadius = '112%',innerRadius = '88%',backgroundColor = JS("Highcharts.Color('#F62366').setOpacity(0.1).get()"),borderWidth =  0),
+#             list(outerRadius = '87%',innerRadius = '63%',backgroundColor = JS("Highcharts.Color('#9DFF02').setOpacity(0.1).get()"),borderWidth = 0),
+#             list(outerRadius = '62%',innerRadius =  '38%',backgroundColor = JS("Highcharts.Color('#0CCDD6').setOpacity(0.1).get()"),borderWidth = 0))) %>% 
+#   hc_yAxis(min = 0,max = 100,lineWidth = 0,tickPositions = list()) %>% 
+#   hc_plotOptions(solidgauge = list(borderWidth = '34px',dataLabels = list(enabled = FALSE),linecap = 'round',stickyTracking = FALSE)) %>% 
+#   hc_add_series(name = "Move",borderColor = JS("Highcharts.getOptions().colors[0]"),data = list(list(color = JS("Highcharts.getOptions().colors[0]"),radius = "100%",innerRadius = "100%",y = 80))) %>% 
+#   hc_add_series(name = "Exercise",borderColor = JS("Highcharts.getOptions().colors[1]"),data = list(list(color = JS("Highcharts.getOptions().colors[1]"),radius = "75%",innerRadius = "75%",y = 65))) %>% 
+#   hc_add_series(name = "Stand",borderColor = JS("Highcharts.getOptions().colors[2]"),data = list(list(color = JS("Highcharts.getOptions().colors[2]"),radius = "50%",innerRadius = "50%",y = 50)))
 
 #+++++++++++++++++++++++++++++
 # Gráfico 2
@@ -144,6 +101,39 @@ highchart() %>%
 
 # H. REGIONAL DEL CUSCO
 #-----------------------------
+
+# Gráfico 2.1.
+#---------------
+
+donut_data <- data.frame(type = c("Vacunados", "Por_vacunar"), value = c(3716, 313)) %>%
+  mutate(
+    percentage = value / 4029,
+    hover_text = paste0(type, ": ", value)
+  ) %>%
+  mutate(percentage_label = paste0(round(100 * percentage, 1), "%"))
+
+donut_plot <- ggplot(donut_data, aes(y = value, fill = type)) +
+  geom_bar_interactive(
+    aes(x = 1, tooltip = hover_text),
+    width = 0.2,
+    stat = "identity",
+    show.legend = T
+  ) +
+  labs(fill = "GOBIERNO REGIONAL",
+       x = " ") +
+  annotate(
+    geom = "text",
+    x = 0,
+    y = 0,
+    label = donut_data[["percentage_label"]][donut_data[["type"]] == "Vacunados"],
+    size = 18,
+    color = "#d00000"
+  ) +
+  scale_fill_manual(values = c(Vacunados = "#d00000", Por_vacunar = "#03071e")) +
+  coord_polar(theta = "y") +
+  theme_minimal()
+
+ggiraph(ggobj = donut_plot)
 
 # Gráfico 2.2. 
 #--------------
@@ -456,127 +446,17 @@ highchart() %>%
   hc_tooltip(pointFormat = "{point.y}%")
 
 
-# _________________________________________________________
-#
-#  RED CHUMBIVILCAS
-#__________________________________________________________
-
-# Gráfico 2.1. 
-#--------------
-
-per=73
-col=ifelse(per <= 100,"#ff6107",ifelse(per <=80,"#ff6107","#ff6107")) 
-
-dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
-                    "%</span><br/><span style='font-size:100%;color:#ff6107;'>de avance</div>")
-
-highchart() %>%
-  hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  hc_title(y=50,text = "LIVITACA") %>%
-  hc_pane(startAngle = -90,
-          endAngle = 90,background= list(
-            outerRadius = '100%',
-            innerRadius = '60%',
-            backgroundColor = JS("Highcharts.Color('#fef2bf').setOpacity(0.1).get()"),
-            shape="arc" )) %>%  
-  hc_yAxis(
-    # stops=col.stops,
-    lineWidth=0,
-    minorTickWidth=0,
-    tickAmount=2,
-    min = 0,
-    max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
-  hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
-
-# Gráfico 2.2. 
-#--------------
-
-per=40.7
-col=ifelse(per <= 100,"#ff6107",ifelse(per <=80,"#ff6107","#ff6107")) 
-
-dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
-                    "%</span><br/><span style='font-size:100%;color:#ff6107;'>de avance</div>")
-
-highchart() %>%
-  hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  hc_title(y=50,text = "HOSPITAL SANTO TOMAS") %>%
-  hc_pane(startAngle = -90,
-          endAngle = 90,background= list(
-            outerRadius = '100%',
-            innerRadius = '60%',
-            backgroundColor = JS("Highcharts.Color('#fef2bf').setOpacity(0.1).get()"),
-            shape="arc" )) %>%  
-  hc_yAxis(
-    # stops=col.stops,
-    lineWidth=0,
-    minorTickWidth=0,
-    tickAmount=2,
-    min = 0,
-    max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
-  hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 
-# _________________________________________________________
-#
-#  RED KIMBIRI-PICHARI
-#__________________________________________________________
-
-# Gráfico 2.1. 
-#--------------
-
-per=87.9
-col=ifelse(per <= 100,"#ff6107",ifelse(per <=80,"#ff6107","#ff6107")) 
-
-dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
-                    "%</span><br/><span style='font-size:100%;color:#ff6107;'>de avance</div>")
-
-highchart() %>%
-  hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  hc_title(y=50,text = "PICHARI") %>%
-  hc_pane(startAngle = -90,
-          endAngle = 90,background= list(
-            outerRadius = '100%',
-            innerRadius = '60%',
-            backgroundColor = JS("Highcharts.Color('#fef2bf').setOpacity(0.1).get()"),
-            shape="arc" )) %>%  
-  hc_yAxis(
-    # stops=col.stops,
-    lineWidth=0,
-    minorTickWidth=0,
-    tickAmount=2,
-    min = 0,
-    max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
-  hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 
-# Gráfico 2.2. 
-#--------------
 
-per=79.1
-col=ifelse(per <= 100,"#ff6107",ifelse(per <=80,"#ff6107","#ff6107")) 
 
-dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
-                    "%</span><br/><span style='font-size:100%;color:#ff6107;'>de avance</div>")
 
-highchart() %>%
-  hc_chart(type = "solidgauge",spacingTop=-30) %>%
-  hc_title(y=50,text = "SAN JUAN DE KIMBIRI-VRAEM") %>%
-  hc_pane(startAngle = -90,
-          endAngle = 90,background= list(
-            outerRadius = '100%',
-            innerRadius = '60%',
-            backgroundColor = JS("Highcharts.Color('#fef2bf').setOpacity(0.1).get()"),
-            shape="arc" )) %>%  
-  hc_yAxis(
-    # stops=col.stops,
-    lineWidth=0,
-    minorTickWidth=0,
-    tickAmount=2,
-    min = 0,
-    max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
-  hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
+
+
+
+    
+    
+    
