@@ -56,7 +56,12 @@ highchart() %>%
       name = "Avance",
       data = round(base1$AVANCE),
       pointPlacement = "on",
-      type = "area")) %>% 
+      type = "area"),
+    list(
+      name = "Avance",
+      data = round(base1$maximo),
+      pointPlacement = "on",
+      type = "line")) %>% 
    hc_tooltip(pointFormat = "{point.y}%")  
 
 
