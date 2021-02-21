@@ -26,11 +26,11 @@ base1 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/base_provincias_2
 
 # Paleta de colores
 
-mypal1 <- c(
+mypal <- c(
   rgb(255, 99, 7, maxColorValue = 255),
   rgb(233, 41, 15, maxColorValue = 255)
 )
-print(mypal1)
+print(mypal)
 
 #+++++++++++++++++++++++++++++
 # Gráfico 1
@@ -301,13 +301,13 @@ require(highcharter)
 
 highchart() %>% 
   hc_chart(polar = TRUE) %>% 
-  hc_title(text = "PROVINCIAS",
+  hc_title(text = "REDES",
            style = list(fontWeight = "bold", fontSize = "25px", color="#03071e", useHTML=TRUE),
            align = "center") %>% 
   hc_subtitle(text = "'Avance de vacunación'",
               style = list(fontWeight = "bold"),
               align = "center") %>% 
-  hc_xAxis(categories = base1$PROVINCIA,
+  hc_xAxis(categories = data2$IPRESS,
            style = list(fontWeight = "bold")) %>% 
   # hc_add_theme(hc_theme_sandsignika()) %>% 
   hc_credits(enabled = TRUE,
@@ -317,12 +317,12 @@ highchart() %>%
   hc_series(
     list(
       name = "Avance",
-      data = round(base1$AVANCE),
+      data = round(data2$AVANCE),
       pointPlacement = "on",
       type = "area"),
     list(
       name = "Avance",
-      data = round(base1$MAXIMO),
+      data = round(data2$MAXIMO),
       pointPlacement = "on",
       type = "line")) %>% 
   hc_tooltip(pointFormat = "{point.y}%")
@@ -336,24 +336,35 @@ highchart() %>%
 data3 <- read_excel("D:/DIRESA Cusco/MatLab DIRESA/Vacunación/Cusco Norte.xlsx")
 
 
-# Define fill colors
+require(highcharter)
 
-colors_line <- c(scales::alpha("#e9290f", 1))
-colors_fill <- c(scales::alpha("#e9290f", 0.8))
-
-# create a plot
-
-radarchart(data3, axisHAL=1,
-           seg=5, 
-           pcol = colors_line,
-           pfcol = colors_fill,
-           plwd = 3,
-           plty=1,
-           cglcol="grey", cglty=1, axislabcol="grey", caxislabels=seq(0,20,5), cglwd=0.8,
-           vlcex=0.8,
-           pty = 16
-)
-
+highchart() %>% 
+  hc_chart(polar = TRUE) %>% 
+  hc_title(text = "REDES",
+           style = list(fontWeight = "bold", fontSize = "25px", color="#03071e", useHTML=TRUE),
+           align = "center") %>% 
+  hc_subtitle(text = "'Avance de vacunación'",
+              style = list(fontWeight = "bold"),
+              align = "center") %>% 
+  hc_xAxis(categories = data3$IPRESS,
+           style = list(fontWeight = "bold")) %>% 
+  # hc_add_theme(hc_theme_sandsignika()) %>% 
+  hc_credits(enabled = TRUE,
+             text = "GERESA CUSCO") %>% 
+  hc_legend(enabled = TRUE) %>% 
+  hc_colors(mypal) %>% 
+  hc_series(
+    list(
+      name = "Avance",
+      data = round(data3$AVANCE),
+      pointPlacement = "on",
+      type = "area"),
+    list(
+      name = "Avance",
+      data = round(data3$MAXIMO),
+      pointPlacement = "on",
+      type = "line")) %>% 
+  hc_tooltip(pointFormat = "{point.y}%")
 
 # _________________________________________________________
 #
@@ -363,23 +374,35 @@ radarchart(data3, axisHAL=1,
 data4 <- read_excel("D:/DIRESA Cusco/MatLab DIRESA/Vacunación/Cusco Sur.xlsx")
 
 
-# Define fill colors
+require(highcharter)
 
-colors_line <- c(scales::alpha("#c40018", 1))
-colors_fill <- c(scales::alpha("#c40018", 0.8))
-
-# create a plot
-
-radarchart(data4, axisHAL=1,
-           seg=5, 
-           pcol = colors_line,
-           pfcol = colors_fill,
-           plwd = 3,
-           plty=1,
-           cglcol="grey", cglty=1, axislabcol="grey", caxislabels=seq(0,20,5), cglwd=0.8,
-           vlcex=0.8,
-           pty = 16
-)
+highchart() %>% 
+  hc_chart(polar = TRUE) %>% 
+  hc_title(text = "REDES",
+           style = list(fontWeight = "bold", fontSize = "25px", color="#03071e", useHTML=TRUE),
+           align = "center") %>% 
+  hc_subtitle(text = "'Avance de vacunación'",
+              style = list(fontWeight = "bold"),
+              align = "center") %>% 
+  hc_xAxis(categories = data4$IPRESS,
+           style = list(fontWeight = "bold")) %>% 
+  # hc_add_theme(hc_theme_sandsignika()) %>% 
+  hc_credits(enabled = TRUE,
+             text = "GERESA CUSCO") %>% 
+  hc_legend(enabled = TRUE) %>% 
+  hc_colors(mypal) %>% 
+  hc_series(
+    list(
+      name = "Avance",
+      data = round(data4$AVANCE),
+      pointPlacement = "on",
+      type = "area"),
+    list(
+      name = "Avance",
+      data = round(data4$MAXIMO),
+      pointPlacement = "on",
+      type = "line")) %>% 
+  hc_tooltip(pointFormat = "{point.y}%")
 
 # _________________________________________________________
 #
@@ -388,23 +411,35 @@ radarchart(data4, axisHAL=1,
 
 data5 <- read_excel("D:/DIRESA Cusco/MatLab DIRESA/Vacunación/La Convención.xlsx")
 
-# Define fill colors
+require(highcharter)
 
-colors_line <- c(scales::alpha("#292725", 1))
-colors_fill <- c(scales::alpha("#292725", 0.8))
-
-# create a plot
-
-radarchart(data5, axisHAL=1,
-           seg=5, 
-           pcol = colors_line,
-           pfcol = colors_fill,
-           plwd = 3,
-           plty=1,
-           cglcol="grey", cglty=1, axislabcol="grey", caxislabels=seq(0,20,5), cglwd=0.8,
-           vlcex=0.8,
-           pty = 16
-)
+highchart() %>% 
+  hc_chart(polar = TRUE) %>% 
+  hc_title(text = "REDES",
+           style = list(fontWeight = "bold", fontSize = "25px", color="#03071e", useHTML=TRUE),
+           align = "center") %>% 
+  hc_subtitle(text = "'Avance de vacunación'",
+              style = list(fontWeight = "bold"),
+              align = "center") %>% 
+  hc_xAxis(categories = data5$IPRESS,
+           style = list(fontWeight = "bold")) %>% 
+  # hc_add_theme(hc_theme_sandsignika()) %>% 
+  hc_credits(enabled = TRUE,
+             text = "GERESA CUSCO") %>% 
+  hc_legend(enabled = TRUE) %>% 
+  hc_colors(mypal) %>% 
+  hc_series(
+    list(
+      name = "Avance",
+      data = round(data5$AVANCE),
+      pointPlacement = "on",
+      type = "area"),
+    list(
+      name = "Avance",
+      data = round(data5$MAXIMO),
+      pointPlacement = "on",
+      type = "line")) %>% 
+  hc_tooltip(pointFormat = "{point.y}%")
 
 
 
