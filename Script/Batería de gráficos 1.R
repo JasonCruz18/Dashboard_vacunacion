@@ -20,7 +20,9 @@ library(ggiraph)
 #+++++++++++++++++++++++++++++
 
 # fans_react = fread("https://raw.githubusercontent.com/manasi1096/Highcharts-HIMYM/master/FansReact-HIMYM.csv")
-base1 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/base_provincias_18.xlsx")
+# base1 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/base_provincias_18.xlsx")
+
+base1 <- read_excel("/Users/bran/Documents/GitHub/Dashboard_vacunacion/data/base_provincias_18.xlsx")
 
 # Paleta de colores
 
