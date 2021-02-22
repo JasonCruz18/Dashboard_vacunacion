@@ -69,10 +69,10 @@ highchart() %>%
 #------------------
 
 per=98
-col=ifelse(per <= 100,"#163a5f",ifelse(per <=80,"#163a5f","#163a5f")) 
+col=ifelse(per <= 100,"#011f3f",ifelse(per <=80,"#011f3f","#011f3f")) 
 
 dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
-                    "%</span><br/><span style='font-size:100%;color:#163a5f;'>de avance</div>")
+                    "%</span><br/><span style='font-size:100%;color:#011f3f;'>de avance</div>")
 
 highchart() %>%
   hc_chart(type = "solidgauge",spacingTop=-30) %>%
@@ -218,7 +218,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-5,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=20,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 # H. ESPINAR
@@ -249,7 +249,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-5,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=20,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 # H. QUILLABAMBA
@@ -280,7 +280,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-5,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=20,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 # H. SICUANI
@@ -311,7 +311,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-5,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=20,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 
@@ -352,7 +352,7 @@ highchart() %>%
       pointPlacement = "on",
       type = "area"),
     list(
-      name = "Avance",
+      name = "Meta",
       data = round(data2$MAXIMO),
       pointPlacement = "on",
       type = "line")) %>% 
@@ -391,7 +391,7 @@ highchart() %>%
       pointPlacement = "on",
       type = "area"),
     list(
-      name = "Avance",
+      name = "Meta",
       data = round(data3$MAXIMO),
       pointPlacement = "on",
       type = "line")) %>% 
@@ -429,7 +429,7 @@ highchart() %>%
       pointPlacement = "on",
       type = "area"),
     list(
-      name = "Avance",
+      name = "Meta",
       data = round(data4$MAXIMO),
       pointPlacement = "on",
       type = "line")) %>% 
@@ -466,7 +466,7 @@ highchart() %>%
       pointPlacement = "on",
       type = "area"),
     list(
-      name = "Avance",
+      name = "Meta",
       data = round(data5$MAXIMO),
       pointPlacement = "on",
       type = "line")) %>% 
@@ -502,7 +502,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=20,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 # Gráfico 2.2. 
@@ -530,7 +530,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=20,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 
@@ -564,7 +564,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=20,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 
@@ -593,7 +593,7 @@ highchart() %>%
     tickAmount=2,
     min = 0,
     max = 100,
-    labels=list(x=-50,y=10,style = list(fontSize = "90%"))) %>%  
+    labels=list(x=-5,y=20,style = list(fontSize = "90%"))) %>%  
   hc_add_series(data = c(per),dataLabels=list(y=-20,borderWidth=0, useHTML=TRUE,format = dataLabel) ) %>%hc_colors(col)
 
 
