@@ -23,13 +23,19 @@ shinyUI(
         valueBox("66%", "Avance"),
         valueBox(10353, "Meta"),
     ),
-    h3("AVANCE DE VACUNACION COVID-19 AL 18 DE FEBRERO DEL 2021, PROVINCIAS"),
-    h5("PERSONAL DE SALUD VACUNADO"),
+    
     fluidRow(
-        box(girafeOutput("grafico2_1"))
+        box(highchartOutput("grafico_gore")),
+        box(highchartOutput("grafico_essalud")),
+    ),
+    
+    h3("AVANCE DE VACUNACION COVID-19 AL 18 DE FEBRERO DEL 2021, PROVINCIAS"),
+    h5("(PERSONAL DE SALUD VACUNADO)"),
+    fluidRow(
+        box(highchartOutput("grafico1"))
     ),
     h3("AVANCE DE VACUNACION COVID-19 AL 18 DE FEBRERO DEL 2021, HOSPITALES"),
-    h5("PERSONAL DE SALUD VACUNADO"),
+    h5("(PERSONAL DE SALUD VACUNADO)"),
     fluidRow(
         box(highchartOutput("grafico2_2regional")),
         box(highchartOutput("grafico2_2antoniolorena")),
@@ -38,15 +44,14 @@ shinyUI(
         box(highchartOutput("grafico2_2sicuani"))
     ),
     h3("AVANCE DE VACUNACION COVID-19 AL 18 DE FEBRERO DEL 2021, REDES"),
-    h5("PERSONAL DE SALUD VACUNADO"),
+    h5("(PERSONAL DE SALUD VACUNADO)"),
     fluidRow(
         box(highchartOutput("grafico_cusconorte")),
-        box(highchartOutput("grafico_cuscosur"))
+        box(highchartOutput("grafico_cuscosur")),
         # box(highchartOutput("grafico_laconvencion"))
+        box(highchartOutput("grafico2_1chumbivilcas")),
+        box(highchartOutput("grafico2_2chumbivilcas")),
+        box(highchartOutput("grafico2_1kimbiri")),
+        box(highchartOutput("grafico2_2kimbiri")),
     ),
-    fluidRow(
-        box(),
-        box(),
-        box()
-    )
 ))
