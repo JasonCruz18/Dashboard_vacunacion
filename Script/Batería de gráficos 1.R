@@ -419,7 +419,7 @@ require(highcharter)
 
 highchart() %>% 
   hc_chart(polar = TRUE) %>% 
-  hc_title(text = "REDES",
+  hc_title(text = "RED LA CONVENCIÓN",
            style = list(fontWeight = "bold", fontSize = "25px", color="#03071e", useHTML=TRUE),
            align = "center") %>% 
   hc_subtitle(text = "'Avance de vacunación'",
