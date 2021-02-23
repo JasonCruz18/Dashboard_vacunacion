@@ -3,10 +3,10 @@
 #--------------------------
 
 base1 <- fread("https://raw.githubusercontent.com/JasonCruz18/Dashboard_vacunacion/main/data/base_provincias_20.csv")
-data2 <- fread("https://raw.githubusercontent.com/JasonCruz18/Dashboard_vacunacion/main/Data/RED%20Canas%20Canchis%20Espinar.csv")
-data3 <- fread("https://raw.githubusercontent.com/JasonCruz18/Dashboard_vacunacion/main/Data/RED%20Cusco%20Norte.csv")
-data4 <- fread("https://raw.githubusercontent.com/JasonCruz18/Dashboard_vacunacion/main/Data/RED%20Cusco%20Sur.csv")
-# data5 <- fread("https://raw.githubusercontent.com/JasonCruz18/Dashboard_vacunacion/main/Data/RED%20La%20Convención.csv")
+data2 <- fread("https://raw.githubusercontent.com/JasonCruz18/Dashboard_vacunacion/main/data/RED%20Canas%20Canchis%20Espinar.csv")
+data3 <- fread("https://raw.githubusercontent.com/JasonCruz18/Dashboard_vacunacion/main/data/RED%20Cusco%20Norte.csv")
+data4 <- fread("https://raw.githubusercontent.com/JasonCruz18/Dashboard_vacunacion/main/data/RED%20Cusco%20Sur.csv")
+#data5 <- fread("https://raw.githubusercontent.com/JasonCruz18/Dashboard_vacunacion/main/data/RED%20La%20Convención.csv")
 
 
 mypal <- c(
