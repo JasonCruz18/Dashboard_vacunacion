@@ -33,7 +33,7 @@ print(mypal)
 # GORE
 #------------------
 
-per=62
+per=64
 col=ifelse(per <= 100,"#011f3f",ifelse(per <=80,"#011f3f","#011f3f")) 
 
 dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
@@ -62,7 +62,7 @@ highchart() %>%
 # ESSALUD
 #------------------
 
-per=98
+per=50
 col=ifelse(per <= 100,"#011f3f",ifelse(per <=80,"#011f3f","#011f3f")) 
 
 dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
@@ -100,15 +100,6 @@ highchart() %>%
 base1 <- read_excel("/Users/bran/Documents/GitHub/Dashboard_vacunacion/data/base_provincias_18.xlsx")
 
 base1 <- read_excel("D:/DIRESA Cusco/Dashboard_vacunacion/data/base_provincias_20.xlsx")
-
-
-# Paleta de colores
-
-mypal <- c(
-  rgb(255, 99, 7, maxColorValue = 255),
-  rgb(233, 41, 15, maxColorValue = 255)
-)
-print(mypal)
 
 #+++++++++++++++++++++++++++++
 # Gráfico 1
@@ -159,7 +150,7 @@ highchart() %>%
 # Gráfico 2.2. 
 #--------------
 
-per=87.9
+per=82.6
 col=ifelse(per <= 100,"#ff6107",ifelse(per <=80,"#ff6107","#ff6107")) 
 
 dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
@@ -190,7 +181,7 @@ highchart() %>%
 # Gráfico 2.2. 
 #--------------
 
-per=93.2
+per=89.2
 col=ifelse(per <= 100,"#e9290f",ifelse(per <=80,"#e9290f","#e9290f")) 
 
 dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
@@ -221,7 +212,7 @@ highchart() %>%
 # Gráfico 2.2. 
 #--------------
 
-per=67.1
+per=68.4
 col=ifelse(per <= 100,"#c40018",ifelse(per <=80,"#c40018","#c40018")) 
 
 dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
@@ -252,7 +243,7 @@ highchart() %>%
 # Gráfico 2.2. 
 #--------------
 
-per=76.2
+per=76.9
 col=ifelse(per <= 100,"#292725",ifelse(per <=80,"#292725","#292725")) 
 
 dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
@@ -283,7 +274,7 @@ highchart() %>%
 # Gráfico 2.2. 
 #--------------
 
-per=61.2
+per=67.1
 col=ifelse(per <= 100,"#011f3f",ifelse(per <=80,"#011f3f","#011f3f")) 
 
 dataLabel <- paste0("<div style=text-align:center><span style=font-size:135%;>", per, 
